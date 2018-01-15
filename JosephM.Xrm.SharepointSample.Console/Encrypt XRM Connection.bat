@@ -1,0 +1,1 @@
+JosephM.Xrm.SharepointSample.Console.exe -xrmsetting
