@@ -16,7 +16,7 @@ namespace JosephM.Xrm.SharepointSample.Plugins.Test
         public void EmailPluginTestMoveDocumentsToSharepointWhenRegardingCase()
         {
             var fileNames = new[]
-            { "No Actually Image.PNG", "No Actually PDF.PDF", "No Actually Word.DOCX" };
+            { "Sample Attachment.PNG", "Sample Attachment.PDF", "Sample Attachment.DOCX" };
             var documentContent = Convert.ToBase64String(File.ReadAllBytes("Test Document.txt"));
 
             //okay lets create a case, then an email regarding it with attachments and verify
