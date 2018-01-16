@@ -4,7 +4,7 @@ namespace JosephM.Xrm.SharepointSample.Plugins.Test
 {
     //this class just for general debug purposes
     [TestClass]
-    public class DebugTests : jmcs_sisXrmTest
+    public class DebugTests : SharepointSampleXrmTest
     {
         [TestMethod]
         public void Debug()

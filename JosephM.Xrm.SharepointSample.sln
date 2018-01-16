@@ -17,6 +17,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionIt
 		SolutionItems\xrmpackage.xrmsettings = SolutionItems\xrmpackage.xrmsettings
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Customisations", "Customisations", "{12F38EB1-FE37-4735-A8F9-2BF741AA3497}"
+	ProjectSection(SolutionItems) = preProject
+		Customisations\Customisations Import.xlsx = Customisations\Customisations Import.xlsx
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

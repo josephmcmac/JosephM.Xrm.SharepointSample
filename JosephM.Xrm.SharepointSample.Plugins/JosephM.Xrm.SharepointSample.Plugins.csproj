@@ -30,6 +30,12 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>JosephM.Xrm.SharepointSample.Plugins.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Crm.Sdk.Proxy, Version=8.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -58,8 +64,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="jmcs_sisPluginRegistration.cs" />
-    <Compile Include="jmcs_sisSettings.cs" />
+    <Compile Include="Plugins\EmailPlugin.cs" />
+    <Compile Include="SharepointSamplePluginRegistration.cs" />
+    <Compile Include="SharepointSampleSettings.cs" />
     <Compile Include="Aggregate\AggregateType.cs" />
     <Compile Include="Aggregate\XrmAggregate.cs" />
     <Compile Include="Aggregate\XrmLookupAggregate.cs" />
@@ -112,11 +119,14 @@
     <Compile Include="Extentions\XrmServiceExtentions.cs" />
     <Compile Include="HtmlEmails\HtmlEmailGenerator.cs" />
     <Compile Include="HtmlEmails\ProcessEntityResponseBase.cs" />
-    <Compile Include="Plugins\jmcs_sisEntityPluginBase.cs" />
+    <Compile Include="Plugins\SharepointSampleEntityPluginBase.cs" />
+    <Compile Include="Plugins\SharepointSettingsPlugin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Schema.cs" />
-    <Compile Include="Services\jmcs_sisService.cs" />
-    <Compile Include="Workflows\jmcs_sisWorkflowActivity.cs" />
+    <Compile Include="Services\EncryptionService.cs" />
+    <Compile Include="Services\SharePoint\ISharepointSettings.cs" />
+    <Compile Include="Services\SharePoint\SharepointService.cs" />
+    <Compile Include="Workflows\SharepointSampleWorkflowActivity.cs" />
     <Compile Include="Xrm\DeviceIdManager.cs" />
     <Compile Include="Xrm\ExceptionExtentions.cs" />
     <Compile Include="Xrm\IXrmConfiguration.cs" />
@@ -136,7 +146,9 @@
     <Compile Include="Xrm\XrmWorkflowActivityInstanceBase.cs" />
     <Compile Include="Xrm\XrmWorkflowActivityRegistration.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="JosephM.Xrm.SharepointSample.Plugins.snk" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="Lib\Microsoft.Crm.Sdk.Proxy.dll" />
     <Content Include="Lib\Microsoft.Xrm.Sdk.dll" />

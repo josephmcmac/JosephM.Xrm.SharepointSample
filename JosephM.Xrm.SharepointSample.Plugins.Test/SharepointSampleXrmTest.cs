@@ -1,12 +1,36 @@
 ﻿using JosephM.Xrm.SharepointSample.Plugins.Services;
+using JosephM.Xrm.SharepointSample.Plugins.Services.SharePoint;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Schema;
 using System.Collections.Generic;
 
 namespace JosephM.Xrm.SharepointSample.Plugins.Test
 {
     [TestClass]
-    public class jmcs_sisXrmTest : XrmTest
+    public class SharepointSampleXrmTest : XrmTest
     {
+        private EncryptionService _encryptionService;
+        public EncryptionService EncryptionService
+        {
+            get
+            {
+                if (_encryptionService == null)
+                    _encryptionService = new EncryptionService();
+                return _encryptionService;
+            }
+        }
+
+        private SharepointService _sharepointService;
+        public SharepointService SharepointService
+        {
+            get
+            {
+                if (_sharepointService == null)
+                    _sharepointService = new SharepointService(SharepointSampleSettings, XrmService);
+                return _sharepointService;
+            }
+        }
+
         //USE THIS IF NEED TO VERIFY SCRIPTS FOR A PARTICULAR SECURITY ROLE
         //private XrmService _xrmService;
         //public override XrmService XrmService
@@ -33,31 +57,20 @@ namespace JosephM.Xrm.SharepointSample.Plugins.Test
         {
             get
             {
-                return new string[0];
+                return new[] { Entities.email, Entities.incident };
             }
         }
 
         //class for shared services or settings objects for tests
         //or extending base class logic
-        private jmcs_sisSettings _settings;
-        public jmcs_sisSettings jmcs_sisSettings
+        private SharepointSampleSettings _settings;
+        public SharepointSampleSettings SharepointSampleSettings
         {
             get
             {
                 if (_settings == null)
-                    _settings = new jmcs_sisSettings(XrmService);
+                    _settings = new SharepointSampleSettings(XrmService, EncryptionService);
                 return _settings;
-            }
-        }
-
-        private jmcs_sisService _service;
-        public jmcs_sisService jmcs_sisService
-        {
-            get
-            {
-                if (_service == null)
-                    _service = new jmcs_sisService(XrmService, jmcs_sisSettings);
-                return _service;
             }
         }
     }
